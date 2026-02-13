@@ -1,0 +1,56 @@
+package io.github.adrianovictorn.lembrete.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import io.github.adrianovictorn.lembrete.dto.LembreteCreateDTO;
+import io.github.adrianovictorn.lembrete.dto.LembreteListDTO;
+import io.github.adrianovictorn.lembrete.dto.LembreteUpdateDTO;
+import io.github.adrianovictorn.lembrete.dto.LembreteViewDTO;
+import io.github.adrianovictorn.lembrete.entity.Lembrete;
+import io.github.adrianovictorn.lembrete.mapper.LembreteMapper;
+import io.github.adrianovictorn.lembrete.repository.LembreteRepository;
+import jakarta.persistence.EntityNotFoundException;
+
+@Service
+public class LembreteService {
+    
+    private final LembreteRepository lembreteRepository;
+    private final LembreteMapper lembreteMapper;
+
+    public LembreteService(LembreteRepository repository, LembreteMapper mapper) {
+        this.lembreteRepository = repository;
+        this.lembreteMapper = mapper;
+    }
+
+
+    public LembreteViewDTO cadastrarLembrete(LembreteCreateDTO dto){
+        Lembrete novoLembrete = lembreteMapper.toEntity(dto);
+        Lembrete salvo = lembreteRepository.save(novoLembrete);
+        return lembreteMapper.viewDTO(salvo);
+    }
+
+    public List<LembreteListDTO> listarLembretes(){
+        List<Lembrete> lembreteList = lembreteRepository.findAll();
+        return lembreteMapper.toListDTO(lembreteList);
+    }
+
+    public LembreteViewDTO atualizarLembrete(Long id, LembreteUpdateDTO dto){
+        Lembrete lembreteExistente = lembreteRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Lembrete não encontrado !"));
+        lembreteMapper.updateDTO(lembreteExistente, dto);
+        Lembrete atualizado = lembreteRepository.save(lembreteExistente);
+        return lembreteMapper.viewDTO(atualizado);
+    }
+
+    public void deletarLembrete(Long id){
+        Lembrete lembreExistente = buscarPorId(id);
+        lembreteRepository.delete(lembreExistente);
+    }
+
+    private Lembrete buscarPorId(Long id){
+        Lembrete lembreteExistente = lembreteRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Lembrete não encontrado !"));
+        return lembreteExistente;
+    }
+    
+}

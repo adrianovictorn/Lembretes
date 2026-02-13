@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=lembrete-api'
+      - 'POSTGRES_PASSWORD=AdrianoVictor159@'
+      - 'POSTGRES_USER=DevAdrianoLembrete'
+    ports:
+      - '5432'
+
+  backend:
+    build: .
+    ports: 
+      - "8080:8080"
+    depends_on:
+      - postgres
