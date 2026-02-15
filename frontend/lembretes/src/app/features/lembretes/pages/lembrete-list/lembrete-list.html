@@ -1,0 +1,16 @@
+<div class="p-6">
+    <div class="flex justify-between mb-4">
+        <h1 class="text-2xl font-bold">Lembretes</h1>
+        <a routerLink="/lembretes/new" class="border border-neutral-400 p-2 rounded-full">Novo +</a>
+    </div>
+
+
+    <div>
+        <h2 class="text-xl font-semibold">Lista de Tarefas:</h2>
+        @for (item of lembretes; track item.titulo) {
+            <app-lembrete-card [item]="item" (excluir)="remover(item.titulo)">
+               
+            </app-lembrete-card>
+        }
+    </div>
+</div>
