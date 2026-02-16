@@ -9,6 +9,7 @@ import io.github.adrianovictorn.lembrete.dto.LembreteListDTO;
 import io.github.adrianovictorn.lembrete.dto.LembreteUpdateDTO;
 import io.github.adrianovictorn.lembrete.dto.LembreteViewDTO;
 import io.github.adrianovictorn.lembrete.entity.Lembrete;
+import io.github.adrianovictorn.lembrete.enums.Status;
 import io.github.adrianovictorn.lembrete.mapper.LembreteMapper;
 import io.github.adrianovictorn.lembrete.repository.LembreteRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -27,6 +28,7 @@ public class LembreteService {
 
     public LembreteViewDTO cadastrarLembrete(LembreteCreateDTO dto){
         Lembrete novoLembrete = lembreteMapper.toEntity(dto);
+        novoLembrete.setStatus(Status.PENDENTE);
         Lembrete salvo = lembreteRepository.save(novoLembrete);
         return lembreteMapper.viewDTO(salvo);
     }

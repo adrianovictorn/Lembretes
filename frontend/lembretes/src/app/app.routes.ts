@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { LembreteList } from './features/lembretes/pages/lembrete-list/lembrete-list';
-import { LembreteForm } from './features/lembretes/pages/lembrete-form/lembrete-form';
+import { LembreteFormPage } from './features/lembretes/pages/form/lembrete-form/lembrete-form-page';
+
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'lembretes', pathMatch: 'full' },
-    { path: 'lembretes', component: LembreteList },
-    { path: 'lembretes/new', component: LembreteForm}
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: 'lembrete/novo', component: LembreteFormPage }
+   
 ];

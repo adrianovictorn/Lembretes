@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="salvar()">
+    <div class="flex flex-col">
+        <label for="titulo" class="text-xl font-medium text-gray-800">Título</label>
+        <input type="text" id="titulo" name="titulo" class="border border-neutral-400 rounded-sm p-3" formControlName="titulo">
+    </div>
+    @if (form.get('titulo')?.invalid && form.get('titulo')?.touched) {
+        <small class="text-red-500">Este campo é obrigatório e deve ter mais de 3 caractéres</small>
+    }
+
+    <div class="flex flex-col">
+        <label for="descricao" class="text-xl font-medium text-gray-800">Mensagem</label>
+        <input type="text" id="descricao" class="border border-neutral-400 rounded-sm p-3" formControlName="mensagem">
+    </div>
+
+    @if (form.get('mensagem')?.invalid && form.get('mensagem')?.touched) {
+        <small class="text-red-500">Este campo é obrigatório e deve ter mais de 3 caractéres</small>
+    }
+
+    <div class="flex flex-col">
+        <button type="submit" [disabled]="form.invalid" class="bg-sky-800 mt-5 p-4 text-white font-medium hover:bg-sky-950 cursor-pointer">Enviar</button>
+    </div>
+
+</form>

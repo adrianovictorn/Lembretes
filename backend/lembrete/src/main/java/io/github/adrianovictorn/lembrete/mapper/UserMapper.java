@@ -15,6 +15,7 @@ import io.github.adrianovictorn.lembrete.enums.Role;
 public interface UserMapper {
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "senha",ignore = true)
     User toEntity(UserCreateDTO dto);
     UserViewDTO viewDTO(User user);
     List<UserListDTO> toList(List<User> lista);

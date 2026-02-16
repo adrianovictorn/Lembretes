@@ -17,6 +17,7 @@ public interface LembreteMapper {
 
     @Mapping(target = "id", ignore = true)    
     @Mapping(target = "criadoEm", ignore = true)
+    @Mapping(target = "status", ignore =  true)
     Lembrete toEntity(LembreteCreateDTO lembrete);
     LembreteViewDTO viewDTO (Lembrete lembrete);
     List<LembreteListDTO> toListDTO(List<Lembrete> lista);
