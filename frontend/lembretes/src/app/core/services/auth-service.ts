@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { tap } from 'rxjs';
+import { Role } from '../config/menu.config';
 
 interface LoginResponse {
   acess_token: string
@@ -38,6 +39,19 @@ export class AuthService {
     
   }
 
+
+
+  hasRole(itemRole: Role[]){
+    const token = String(this.getToken())
+    const {scope} = jwtDecode<{scope?: string}>(token)
+
+    const roles = (scope  ?? '').split(/\s+/).filter(s => s.startsWith('ROLE_')) as Role[]
+    console.log(roles)
+    const haveRole = roles.some(r => itemRole.includes(r)) 
+    console.log(haveRole)
+    return haveRole 
+  }
+
   getToken(): string | null {
     const token = localStorage.getItem(this.KEY)
     if(!token || token === 'undefined' || token === 'null') return null
@@ -45,6 +59,7 @@ export class AuthService {
       localStorage.removeItem(this.KEY)
     }
     return token
+
   }
 
   logout(): void {

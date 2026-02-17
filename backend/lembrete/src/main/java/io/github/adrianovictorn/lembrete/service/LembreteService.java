@@ -9,25 +9,32 @@ import io.github.adrianovictorn.lembrete.dto.LembreteListDTO;
 import io.github.adrianovictorn.lembrete.dto.LembreteUpdateDTO;
 import io.github.adrianovictorn.lembrete.dto.LembreteViewDTO;
 import io.github.adrianovictorn.lembrete.entity.Lembrete;
+import io.github.adrianovictorn.lembrete.entity.User;
 import io.github.adrianovictorn.lembrete.enums.Status;
 import io.github.adrianovictorn.lembrete.mapper.LembreteMapper;
 import io.github.adrianovictorn.lembrete.repository.LembreteRepository;
+import io.github.adrianovictorn.lembrete.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class LembreteService {
     
     private final LembreteRepository lembreteRepository;
+    private final UserRepository userRepository;
     private final LembreteMapper lembreteMapper;
 
-    public LembreteService(LembreteRepository repository, LembreteMapper mapper) {
+    public LembreteService(LembreteRepository repository, LembreteMapper mapper, UserRepository userRepository) {
         this.lembreteRepository = repository;
         this.lembreteMapper = mapper;
+        this.userRepository = userRepository;
     }
 
 
     public LembreteViewDTO cadastrarLembrete(LembreteCreateDTO dto){
+
+        User usuarioExistente = userRepository.findById(dto.userId()).orElseThrow(() -> new EntityNotFoundException("Usuário não existe ou não encontrado !"));
         Lembrete novoLembrete = lembreteMapper.toEntity(dto);
+        novoLembrete.setUser(usuarioExistente);
         novoLembrete.setStatus(Status.PENDENTE);
         Lembrete salvo = lembreteRepository.save(novoLembrete);
         return lembreteMapper.viewDTO(salvo);

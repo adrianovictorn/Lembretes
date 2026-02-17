@@ -1,0 +1,20 @@
+<div class="grid grid-cols-1 md:grid-cols-[200px_1fr] grid-rows-[auto_1fr] h-screen">
+    
+    <app-sidebar-layout class="hidden md:block row-span-2 z-20"></app-sidebar-layout>
+    <app-header-layout class="z-10" (toggleMenu)="isMenuOpen = !isMenuOpen"></app-header-layout>
+    <main class="border border-gray-300 dark:border-gray-white p-6 rounded">
+            <router-outlet></router-outlet>
+    </main>
+
+    @if (isMenuOpen) {
+        <div class="fixed inset-0 z-40 md:hidden">
+            <div class="absolute inset-0 bg-black/40" (click)="isMenuOpen = false"></div>
+
+            <div class="absolute left-0 top-0 h-full w-72 bg-white dark:bg-gray-800 shadow" (click)="$event.stopPropagation()">
+
+                <app-sidebar-layout></app-sidebar-layout>
+            </div>
+        </div>
+
+    }
+</div>

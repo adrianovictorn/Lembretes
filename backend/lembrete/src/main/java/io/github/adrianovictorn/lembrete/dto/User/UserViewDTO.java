@@ -4,6 +4,7 @@ public record UserViewDTO(
     Long id,
     String nome,
     String senha,
+    String telefone,
     String username
 ) {
     

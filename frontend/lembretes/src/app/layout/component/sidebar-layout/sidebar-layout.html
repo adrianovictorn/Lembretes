@@ -1,0 +1,36 @@
+
+<nav class="bg-indigo-50 text-blue-700 dark:text-blue-500 text-lg font-extralight h-full dark:bg-gray-700">
+    <img src="assets/images/logo_transparente.svg" class="h-35 m-auto" alt="Logo">
+    @for (m of menu; track $index) {
+        <ul>
+        @if (canSee(m.role)) {
+                <li>
+                    <a [routerLink]="m.path" routerLinkActive=" bg-indigo-100 dark:bg-indigo-900" class="flex gap-2 p-3 text-center items-center justify-center-safe"> 
+                        <lucide-icon [img]="m.icon"  ></lucide-icon>
+                        <span>
+                            {{ m.label }}
+                        </span>
+                    </a>
+
+                </li>
+                @if (m.children.length > 0) {
+                    @for (c of m.children; track $index) {
+                        <ul>
+                        @if (canSee(c.role)) {
+                                <li >
+                                    <a [routerLink]="c.path" routerLinkActive=" bg-indigo-100 dark:bg-indigo-900" class="flex gap-4 p-2  text-center items-center justify-center-safe">
+                                        <lucide-icon [img]="c.icon"></lucide-icon>
+                                        <span>{{ c.label }}</span>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                }
+                
+            }
+        </ul>
+    }
+</nav>
+
+

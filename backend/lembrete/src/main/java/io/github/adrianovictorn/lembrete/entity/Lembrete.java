@@ -12,6 +12,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -33,6 +35,13 @@ public class Lembrete {
     @Enumerated(EnumType.STRING)
     @Column(name = "estado", nullable = false, length = 100)
     private Status status;
+
+    @Column(name = "data_lembrete")
+    private LocalDateTime dataLembrete;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @CreationTimestamp
     @Column(name = "criado_em", nullable = false, updatable = false)
