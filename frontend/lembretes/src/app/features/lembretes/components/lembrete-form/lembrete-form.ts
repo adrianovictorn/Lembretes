@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LembreteCreateDto } from '../../models/lembrete-create.dto';
-import { LembreteService } from '../../lembrete-services';
+import { LembreteService } from '../../services/lembrete-services';
 import { Router } from '@angular/router';
 
 @Component({

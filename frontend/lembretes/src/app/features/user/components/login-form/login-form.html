@@ -1,0 +1,17 @@
+<div class="bg-white">
+    <form [formGroup]="form" (ngSubmit)="logar()">
+        <div class="flex flex-col">
+            <label for="usuario" class="text-xl font-semibold text-gray-800">Usuário</label>
+            <input type="text" id="usuario" class="border border-neutral-600 rounded-lg p-2" formControlName="username">
+        </div>
+
+        <div class="flex flex-col">
+            <label for="senha" class="text-xl font-semibold text-gray-800">Senha</label>
+            <input type="password" id="senha" class="border border-neutral-600 rounded-lg p-2" formControlName="password">
+        </div>
+
+        <div class="flex flex-col" >
+            <button type="submit" class="text-white bg-sky-950 hover:bg-sky-600 p-3 rounded-lg mt-3">Login</button>
+        </div>
+    </form>
+</div>
