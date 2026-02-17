@@ -1,1 +1,9 @@
 <p>lembrete-list works!</p>
+
+@if (lembretes$ | async; as lembretes) {
+    @for (l of lembretes; track l.id) {
+    
+        <app-lembrete-card [item]="l"></app-lembrete-card>
+    }
+
+}
