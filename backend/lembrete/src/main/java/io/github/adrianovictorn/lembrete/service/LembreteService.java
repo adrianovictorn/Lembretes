@@ -2,6 +2,9 @@ package io.github.adrianovictorn.lembrete.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import io.github.adrianovictorn.lembrete.dto.LembreteCreateDTO;
@@ -50,6 +53,11 @@ public class LembreteService {
         lembreteMapper.updateDTO(lembreteExistente, dto);
         Lembrete atualizado = lembreteRepository.save(lembreteExistente);
         return lembreteMapper.viewDTO(atualizado);
+    }
+
+    public Page<LembreteViewDTO> buscarPorUsuario(Long id, int page, int size){
+        Pageable pagina = PageRequest.of(page, size);
+        return lembreteRepository.findByUserId(id, pagina).map(lembreteMapper::viewDTO);
     }
 
     public void deletarLembrete(Long id){

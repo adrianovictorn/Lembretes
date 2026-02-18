@@ -8,7 +8,7 @@ ALTER TABLE lembrete
 ALTER TABLE lembrete
     ADD CONSTRAINT fk_lembrete_usuario
     FOREIGN KEY (user_id)
-    REFERENCES usuario(user_id);
+    REFERENCES usuario(id);
 
 ALTER TABLE usuario
     ADD COLUMN telefone VARCHAR(20) NOT NULL;
