@@ -18,7 +18,7 @@ public interface UserMapper {
     @Mapping(target = "senha",ignore = true)
     @Mapping(target = "lembretes", ignore = true)
     User toEntity(UserCreateDTO dto);
-    UserViewDTO viewDTO(User user);
+    UserViewDTO toViewDTO(User user);
     List<UserListDTO> toList(List<User> lista);
 
     default Role mapCargo(String cargo){

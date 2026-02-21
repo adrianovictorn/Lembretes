@@ -2,7 +2,7 @@ package io.github.adrianovictorn.lembrete.dto.level;
 
 import java.time.LocalDateTime;
 
-public record LevelViewDTO(
+public record LevelListDTO(
     Long id,
     int numero,
     long xpMinimo,

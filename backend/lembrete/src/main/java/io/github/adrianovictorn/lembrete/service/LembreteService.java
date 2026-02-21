@@ -40,7 +40,7 @@ public class LembreteService {
         novoLembrete.setUser(usuarioExistente);
         novoLembrete.setStatus(Status.PENDENTE);
         Lembrete salvo = lembreteRepository.save(novoLembrete);
-        return lembreteMapper.viewDTO(salvo);
+        return lembreteMapper.toViewDTO(salvo);
     }
 
     public List<LembreteListDTO> listarLembretes(){
@@ -52,12 +52,12 @@ public class LembreteService {
         Lembrete lembreteExistente = lembreteRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Lembrete não encontrado !"));
         lembreteMapper.updateDTO(lembreteExistente, dto);
         Lembrete atualizado = lembreteRepository.save(lembreteExistente);
-        return lembreteMapper.viewDTO(atualizado);
+        return lembreteMapper.toViewDTO(atualizado);
     }
 
     public Page<LembreteViewDTO> buscarPorUsuario(Long id, int page, int size){
         Pageable pagina = PageRequest.of(page, size);
-        return lembreteRepository.findByUserId(id, pagina).map(lembreteMapper::viewDTO);
+        return lembreteRepository.findByUserId(id, pagina).map(lembreteMapper::toViewDTO);
     }
 
     public void deletarLembrete(Long id){

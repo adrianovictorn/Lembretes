@@ -30,7 +30,7 @@ public class UserService {
         User novoUsuario = userMapper.toEntity(dto);
         novoUsuario.setSenha(encoder.encode(dto.senha()));
         User salvo = userRepository.save(novoUsuario);
-        return userMapper.viewDTO(salvo);
+        return userMapper.toViewDTO(salvo);
     }
 
     

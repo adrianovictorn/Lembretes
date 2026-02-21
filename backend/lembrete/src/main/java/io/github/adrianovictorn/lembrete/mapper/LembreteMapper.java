@@ -19,13 +19,19 @@ public interface LembreteMapper {
     @Mapping(target = "criadoEm", ignore = true)
     @Mapping(target = "status", ignore =  true)
     @Mapping(target = "user", ignore =  true)
+    @Mapping(target = "xpReward", ignore = true)
+    @Mapping(target = "coinsReward", ignore = true)
+    @Mapping(target = "concluidoEm", ignore = true)
     Lembrete toEntity(LembreteCreateDTO lembrete);
-    LembreteViewDTO viewDTO (Lembrete lembrete);
+    LembreteViewDTO toViewDTO (Lembrete lembrete);
     List<LembreteListDTO> toListDTO(List<Lembrete> lista);
 
     @Mapping(target = "id", ignore = true)    
     @Mapping(target = "criadoEm", ignore = true)
     @Mapping(target = "user", ignore =  true)
+    @Mapping(target = "xpReward", ignore = true)
+    @Mapping(target = "coinsReward", ignore = true)
+    @Mapping(target = "concluidoEm", ignore = true)
     void updateDTO(@MappingTarget Lembrete lembrete, LembreteUpdateDTO dto);
 
 
