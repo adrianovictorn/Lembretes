@@ -5,9 +5,9 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import io.github.adrianovictorn.lembrete.dto.User.UserCreateDTO;
-import io.github.adrianovictorn.lembrete.dto.User.UserListDTO;
-import io.github.adrianovictorn.lembrete.dto.User.UserViewDTO;
+import io.github.adrianovictorn.lembrete.dto.user.UserCreateDTO;
+import io.github.adrianovictorn.lembrete.dto.user.UserListDTO;
+import io.github.adrianovictorn.lembrete.dto.user.UserViewDTO;
 import io.github.adrianovictorn.lembrete.entity.User;
 import io.github.adrianovictorn.lembrete.enums.Role;
 
@@ -16,6 +16,7 @@ public interface UserMapper {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "senha",ignore = true)
+    @Mapping(target = "lembretes", ignore = true)
     User toEntity(UserCreateDTO dto);
     UserViewDTO viewDTO(User user);
     List<UserListDTO> toList(List<User> lista);

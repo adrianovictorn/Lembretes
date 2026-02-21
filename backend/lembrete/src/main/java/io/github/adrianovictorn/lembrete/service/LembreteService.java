@@ -7,10 +7,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import io.github.adrianovictorn.lembrete.dto.LembreteCreateDTO;
-import io.github.adrianovictorn.lembrete.dto.LembreteListDTO;
-import io.github.adrianovictorn.lembrete.dto.LembreteUpdateDTO;
-import io.github.adrianovictorn.lembrete.dto.LembreteViewDTO;
+import io.github.adrianovictorn.lembrete.dto.lembrete.LembreteCreateDTO;
+import io.github.adrianovictorn.lembrete.dto.lembrete.LembreteListDTO;
+import io.github.adrianovictorn.lembrete.dto.lembrete.LembreteUpdateDTO;
+import io.github.adrianovictorn.lembrete.dto.lembrete.LembreteViewDTO;
 import io.github.adrianovictorn.lembrete.entity.Lembrete;
 import io.github.adrianovictorn.lembrete.entity.User;
 import io.github.adrianovictorn.lembrete.enums.Status;

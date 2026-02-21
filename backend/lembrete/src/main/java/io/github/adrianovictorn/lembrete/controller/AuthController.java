@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.github.adrianovictorn.lembrete.dto.Login.LoginRequest;
+import io.github.adrianovictorn.lembrete.dto.login.LoginRequest;
 
 @RestController
 @RequestMapping("/api/auth")

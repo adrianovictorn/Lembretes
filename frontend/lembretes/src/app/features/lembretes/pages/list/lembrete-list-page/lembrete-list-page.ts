@@ -5,7 +5,7 @@ import { LembreteCard } from "../../../components/lembrete-card/lembrete-card";
 @Component({
   selector: 'app-lembrete-list-page',
   standalone: true,
-  imports: [LembreteList, LembreteCard],
+  imports: [LembreteList],
   templateUrl: './lembrete-list-page.html',
   styleUrl: './lembrete-list-page.css',
 })

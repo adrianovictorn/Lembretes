@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.github.adrianovictorn.lembrete.dto.User.UserCreateDTO;
-import io.github.adrianovictorn.lembrete.dto.User.UserListDTO;
-import io.github.adrianovictorn.lembrete.dto.User.UserViewDTO;
+import io.github.adrianovictorn.lembrete.dto.user.UserCreateDTO;
+import io.github.adrianovictorn.lembrete.dto.user.UserListDTO;
+import io.github.adrianovictorn.lembrete.dto.user.UserViewDTO;
 import io.github.adrianovictorn.lembrete.service.UserService;
 
 @RestController

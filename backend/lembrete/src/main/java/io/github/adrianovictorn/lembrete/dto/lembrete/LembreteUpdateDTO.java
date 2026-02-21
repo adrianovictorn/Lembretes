@@ -1,4 +1,4 @@
-package io.github.adrianovictorn.lembrete.dto;
+package io.github.adrianovictorn.lembrete.dto.lembrete;
 
 
 import java.time.LocalDate;

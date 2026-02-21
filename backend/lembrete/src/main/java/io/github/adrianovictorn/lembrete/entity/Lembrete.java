@@ -46,4 +46,13 @@ public class Lembrete {
     @CreationTimestamp
     @Column(name = "criado_em", nullable = false, updatable = false)
     private LocalDateTime criadoEm;
+
+    @Column(name = "xp_reward", nullable = false) 
+    private int xpReward;
+
+    @Column(name = "coins_reward", nullable = true)
+    private int coinsReward;
+
+    @Column(name = "concluido_em", nullable = true)
+    private LocalDateTime concluidoEm;
 }

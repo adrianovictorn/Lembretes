@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import io.github.adrianovictorn.lembrete.dto.User.UserCreateDTO;
-import io.github.adrianovictorn.lembrete.dto.User.UserListDTO;
-import io.github.adrianovictorn.lembrete.dto.User.UserViewDTO;
+import io.github.adrianovictorn.lembrete.dto.user.UserCreateDTO;
+import io.github.adrianovictorn.lembrete.dto.user.UserListDTO;
+import io.github.adrianovictorn.lembrete.dto.user.UserViewDTO;
 import io.github.adrianovictorn.lembrete.entity.User;
 import io.github.adrianovictorn.lembrete.mapper.UserMapper;
 import io.github.adrianovictorn.lembrete.repository.UserRepository;

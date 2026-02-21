@@ -1,4 +1,4 @@
-package io.github.adrianovictorn.lembrete.dto.User;
+package io.github.adrianovictorn.lembrete.dto.user;
 
 
 import io.github.adrianovictorn.lembrete.enums.Role;

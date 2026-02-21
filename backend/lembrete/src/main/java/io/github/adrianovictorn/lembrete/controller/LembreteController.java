@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.github.adrianovictorn.lembrete.dto.LembreteCreateDTO;
-import io.github.adrianovictorn.lembrete.dto.LembreteListDTO;
-import io.github.adrianovictorn.lembrete.dto.LembreteUpdateDTO;
-import io.github.adrianovictorn.lembrete.dto.LembreteViewDTO;
+import io.github.adrianovictorn.lembrete.dto.lembrete.LembreteCreateDTO;
+import io.github.adrianovictorn.lembrete.dto.lembrete.LembreteListDTO;
+import io.github.adrianovictorn.lembrete.dto.lembrete.LembreteUpdateDTO;
+import io.github.adrianovictorn.lembrete.dto.lembrete.LembreteViewDTO;
 import io.github.adrianovictorn.lembrete.service.LembreteService;
 
 @RestController

@@ -1,4 +1,4 @@
-package io.github.adrianovictorn.lembrete.dto.Login;
+package io.github.adrianovictorn.lembrete.dto.login;
 
 public record LoginRequest(
     String username, 

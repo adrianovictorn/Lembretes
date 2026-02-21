@@ -1,4 +1,4 @@
-package io.github.adrianovictorn.lembrete.dto.User;
+package io.github.adrianovictorn.lembrete.dto.user;
 
 public record UserListDTO(
     Long id,

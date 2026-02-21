@@ -42,9 +42,5 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(name = "cargo", nullable = false, length = 100)
     private Role role;
-
-
-
-
-    
+        
 }
