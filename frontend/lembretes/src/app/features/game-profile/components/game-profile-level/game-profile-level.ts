@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 
 @Component({
   selector: 'app-game-profile-level',
@@ -7,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './game-profile-level.css',
 })
 export class GameProfileLevel {
+
+
+  nivel = input<string>()
+  xpNecessario = input<number>(0)
+  xpAtual = input<number>(0)
+  barra = input<number>(0)
+
+  
 
 }

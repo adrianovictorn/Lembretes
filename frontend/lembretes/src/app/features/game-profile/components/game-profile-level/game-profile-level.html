@@ -1,1 +1,28 @@
-<p>game-profile-level works!</p>
+<p>{{ nivel() }} </p>
+
+<div id="barra-de-progresso" class="border px-1 py-1 rounded-full ">
+    @if ( barra() === 0) {
+        <div class = "bg-slate-400 h-5 rounded-full transition-all" [style.width.%]="barra()">
+        </div>
+    }
+    @if (barra() > 10 && barra() <= 0.3 * 100) {
+        <div class = "bg-cyan-400 h-5 rounded-full transition-all" [style.width.%]="barra()">
+        </div>
+    }
+    @if ( barra() > 30 && barra() <= 60) {
+        <div class = "bg-sky-700 h-5 rounded-full transition-all" [style.width.%]="barra()">
+            
+        </div>
+    }
+    @if ( barra() > 0.6 * 100 && barra() <= 0.9 * 100) {
+        <div class = "bg-cyan-300 h-5 rounded-full transition-all" [style.width.%]="barra()">
+            
+        </div>
+    }
+    @if ( barra() > 0.9 * 100) {
+        <div class = "bg-green-300 h-5 rounded-full transition-all" [style.width.%]="barra()">
+        </div>
+    }
+</div>
+
+

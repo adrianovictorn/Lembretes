@@ -6,7 +6,7 @@ services:
       - 'POSTGRES_PASSWORD=AdrianoVictor159@'
       - 'POSTGRES_USER=DevAdrianoLembrete'
     ports:
-      - '5432'
+      - '5432:5432'
   
   pgadmin4:
     image: 'dpage/pgadmin4:latest'
@@ -17,6 +17,11 @@ services:
       - '15432:80'
   backend:
     build: .
+    environment:
+      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/lembrete-api'
+      - 'SPRING_DATASOURCE_USERNAME=DevAdrianoLembrete'
+      - 'SPRING_DATASOURCE_PASSWORD=AdrianoVictor159@'
+      - 'APP_JWT_SECRET=W4DPHcZqxaipXicbDb49eIzvB3M70XfTtGog0nx3dop'
     ports: 
       - "8080:8080"
     depends_on:

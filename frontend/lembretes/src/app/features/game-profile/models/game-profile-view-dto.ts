@@ -1,4 +1,4 @@
-import { LevelViewDTO } from "../../level/services/level-view.dto";
+import { LevelViewDTO } from "../../level/models/level-view.dto";
 import { UserSimpleViewDTO } from "../../user/models/user-view.dto";
 
 export interface GameProfileViewDTO {
