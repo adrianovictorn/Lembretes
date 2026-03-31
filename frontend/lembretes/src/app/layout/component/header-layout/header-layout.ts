@@ -1,7 +1,7 @@
-import { Component, EventEmitter, NgModule, Output } from '@angular/core';
-import { LucideAngularModule, Menu  } from "lucide-angular";
-import { GameProfileLevel } from "../../../features/game-profile/components/game-profile-level/game-profile-level";
+import { Component, computed, EventEmitter, inject, NgModule, Output } from '@angular/core';
+import { Coins, icons, LucideAngularModule, Menu  } from "lucide-angular";
 import { LevelLayout } from "../level-layout/level-layout";
+import { GameProfileFacade } from '../../../features/game-profile/services/game-profile.facade';
 
 @Component({
   selector: 'app-header-layout',
@@ -11,6 +11,21 @@ import { LevelLayout } from "../level-layout/level-layout";
   styleUrl: './header-layout.css',
 })
 export class HeaderLayout {
-  readonly icons = { Menu }
+  gameProfileF = inject(GameProfileFacade)
+  readonly icons = { Menu, Coins}
   @Output() toggleMenu = new EventEmitter<void>()
+
+  constructor(){
+    this.gameProfileF.carregar()
+  }
+
+  profile = this.gameProfileF.gameProfile
+
+  readonly username = computed(() => this.profile()?.user.username ?? '')
+  readonly coins = computed(() => this.profile()?.moedas ?? 0 )
+  visualizar(){
+    console.log(this.profile()?.user.username)
+  }
+
+
 }

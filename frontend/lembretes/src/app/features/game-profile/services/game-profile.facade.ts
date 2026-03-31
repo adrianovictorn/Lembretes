@@ -7,13 +7,15 @@ import { GameProfileViewDTO } from '../models/game-profile-view-dto';
 })
 export class GameProfileFacade {
   private service = inject(GameProfileServices)
-  gameProfile = signal<GameProfileViewDTO | null>(null)
+  
+  private readonly _gameProfile = signal<GameProfileViewDTO| null>(null)
+  
+  readonly gameProfile = this._gameProfile.asReadonly()
 
   carregar(){
     this.service.buscarGameProfile().subscribe({
-      next: (res) => {
-        this.gameProfile.set(res)
-        console.log(this.gameProfile)
+      next: (response: GameProfileViewDTO) => {
+        this._gameProfile.set(response)
       }
     })
   }

@@ -1,11 +1,12 @@
 <form [formGroup]="form" class="text-white" (ngSubmit)="salvar()">
-    <h2>Lembrete com IA</h2>
-    <div>
-        <label for="">Descreva o Lembrete</label>
-        <textarea name="text" formControlName="text"></textarea>
+    <h2 class="font-cinzel font-bold text-cyan-600 text-2xl p-2">defina uma nova missão</h2>
+    <div class=" h-[70vh] flex flex-col">
+        <label for="input" class="font-cinzel text-sm text-slate-300 p-2">Conte sobre o que você deseja realizar ?  </label>
+        <textarea #inputArea name="text" id="input" class="rounded-xl p-5 border" formControlName="text"></textarea>
+        <div class="text-md rounded-lg p-2 justify-self-center items-center text-center">
+            <button #btnSend type="submit" class="mt-5 rounded-lg bg-slate-300 text-slate-900 font-extrabold p-2 w-full font-cinzel cursor-pointer">DEFINIR</button>
+        </div>
     </div>
 
-    <div>
-        <button type="submit">Enviar</button>
-    </div>
+    <app-input-load></app-input-load>
 </form>

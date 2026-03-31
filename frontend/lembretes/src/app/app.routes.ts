@@ -1,11 +1,21 @@
 import { Routes } from '@angular/router';
 import { LoginFormPages } from './features/user/pages/form/login-form/login-form-page';
 import { AppLayout } from './layout/app-layout/app-layout';
+import { LoginForm } from './features/user/components/login-form/login-form';
+import { CreateUserPage } from './features/user/components/create-user/create-user';
 
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginFormPages},
+    { path: 'cadastrar', component: CreateUserPage,
+        children: [
+            {
+                path: '',
+                loadComponent: () => import('./features/user/components/create-user/create-user').then(m => m.CreateUserPage)
+            }
+        ]
+    },
     { 
         path: 'lembretes', component: AppLayout,
         children: [

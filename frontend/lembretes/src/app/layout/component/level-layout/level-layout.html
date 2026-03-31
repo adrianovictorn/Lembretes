@@ -1,5 +1,18 @@
-<div >
-    <div class="bg-emerald-800 h-2 w-10">
-        <p></p>
+<div>
+    <div class="rounded-full  border  h-2 w-10 text-white">
+        @if (barra() > 0 && barra() < 20) {
+            <div class="bg-gray-500 rounded-full h-1.5 transition-all" [style.width.%]="barra()"></div>
+        }
+        @if (barra() > 20 && barra() < 40) {
+            <div class="bg-blue-600 rounded-full h-1.5 transition-all" [style.width.%]="barra()" ></div>
+        }
+        @if (barra() > 40 && barra() < 70) {
+            <div class="bg-sky-900 rounded-full h-1.5 transition-all" [style.width.%]="barra()" ></div>
+        }
+        @if (barra() > 70 && barra() < 100) {
+            <div class="bg-green-700 rounded-full h-1.5 transition-all" [style.width.%]="barra()">
+
+            </div>
+        }
     </div>
 </div>

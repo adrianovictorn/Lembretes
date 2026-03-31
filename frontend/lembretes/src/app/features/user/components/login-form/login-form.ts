@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginRequest } from '../../models/login-request.dto';
-import { AuthService } from '../../../../core/services/auth-service';
 import { LoginService } from '../../services/login-services';
 import { Router } from '@angular/router';
 
