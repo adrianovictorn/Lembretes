@@ -10,7 +10,7 @@ export class InputServices {
   private http = inject(HttpClient)
 
   criarComIa(request: IaLembreteRequest){
-    return this.http.post("http://localhost:8080/api/lembrete/ai", request);
+    return this.http.post('/api/lembrete/ai', request);
   }
 
 }

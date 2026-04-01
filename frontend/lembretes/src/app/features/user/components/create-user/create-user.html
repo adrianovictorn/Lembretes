@@ -1,28 +1,36 @@
-<div class="bg-slate-950 h-screen">
-    <div class="bg-slate-800 max-w-md mx-auto rounded-lg text-white p-15">
-        <form action="">
+<div class="bg-slate-950 h-screen flex justify-center items-center">
+    <div class="bg-slate-800 max-w-md mx-auto  rounded-lg text-white p-15">
+        <form action="" [formGroup]="form" class="flex flex-col gap-3" (ngSubmit)="cadastrar()">
             <div class="flex flex-col">
                 <label for="nome">Nome</label>
-                <input type="text" class="border border-neutral-600 rounded-lg p-2">
+                <input type="text" class="border border-neutral-600 rounded-lg p-2" formControlName="nome">
             </div>
 
             <div class="flex flex-col">
                 <label for="username">Username</label>
-                <input type="text" class="border border-neutral-600 rounded-lg p-2">
+                <input type="text" class="border border-neutral-600 rounded-lg p-2" formControlName="username">
             </div>
 
             <div class="flex flex-col">
                 <label for="senha">Senha</label>
-                <input type="password" class="border border-neutral-600 rounded-lg p-2"> 
+                <input type="password" class="border border-neutral-600 rounded-lg p-2" formControlName="senha"> 
             </div>
 
+            @if (!verificarSenha()) {
+                <small class="text-red-500">As senhas não coincidem</small>
+            }
             <div class="flex flex-col">
                 <label for="confirmar-senha">Confirmar Senha</label>
-                <input type="password" class="border border-neutral-600 rounded-lg p-2"> 
+                <input type="password" class="border border-neutral-600 rounded-lg p-2" formControlName="confirmarSenha"> 
             </div>
 
             <div class="flex flex-col">
-                <label for=""></label>
+                <label for="telefone">Telefone</label>
+                <input type="text" class="border border-neutral-600 rounded-lg p-2" formControlName="telefone">
+            </div>
+
+            <div class="flex flex-col mt-2">
+                <button type="submit" class="font-cinzel text-center bg-sky-600 p-2 rounded-lg">Iniciar Jornada !</button>
             </div>
 
 
