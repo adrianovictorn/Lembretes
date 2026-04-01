@@ -55,8 +55,8 @@ services:
     container_name: lembrete_nginx
     restart: unless-stopped
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:80"     # <--- MUDADO AQUI
+      - "8443:443"    # <--- MUDADO AQUI
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
       # Volumes para Certbot (SSL) — descomentar após instalar:
