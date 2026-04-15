@@ -12,15 +12,14 @@ export class AnimationService {
       duration: 1,
       opacity: 0,
       y: 30,
-      ease: 'power4.on'
+      ease: 'power4.out'
     })
   }
 
 
   load(element: HTMLElement){
-    return gsap.fromTo(element,
-      {duration: 5, opacity: 1, ease: 'power2.out', rotate:360},
-      {duration: 10, opacity: 1, ease:'power2.out', rotate:0}
+    return gsap.to(element,
+      {duration: 3, rotate:360, repeat: -1, yoyo: true}
     )
   }
   
