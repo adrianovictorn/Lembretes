@@ -19,8 +19,12 @@ export class AnimationService {
 
   load(element: HTMLElement){
     return gsap.to(element,
-      {duration: 3, rotate:360, repeat: -1, yoyo: true}
+      {duration: 3, rotate:360, repeat: -1, yoyo: true, ease: 'none'}
     )
+  }
+
+  reverseLoad(element: HTMLElement){
+    return gsap.to(element, {duration: 3, rotate: -360, repeat: -1, yoyo: true, ease: 'none'} )
   }
   
 }

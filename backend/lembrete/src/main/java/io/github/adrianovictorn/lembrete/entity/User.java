@@ -49,6 +49,6 @@ public class User {
     private GameProfile gameProfile;
 
     @Column(name = "user_sequence")
-    private long userSequence;
+    private Long userSequence;
 
 }

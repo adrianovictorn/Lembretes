@@ -11,5 +11,5 @@ public interface LembreteRepository extends JpaRepository<Lembrete, Long>{
     
     Page<Lembrete> findByUserUsername(String username, Pageable pageable);
     Page<Lembrete> findByUserUsernameAndStatus(String username, Status status, Pageable pageable);
-
+    
 }

@@ -1,8 +1,21 @@
-<div #container class=" flex gap-3 p-5 bg-slate-900 border-2 rounded-full  border-cyan-400 border-dashed">
-    <div class="rounded-full p-4 border-2 border-cyan-400 border-dashed ">
-        <div class="rounded-full  p-3 border-2 border-cyan-400 border-dashed">
 
-            <img src="" alt=""> A
+<div class="flex flex-col justify-center items-center gap-5 m-auto fixed inset-0 z-50">
+
+    <div class="flex items-center justify-center">
+        <!--Spinner-->
+        <div #spinner class="w-20 h-20 flex items-center justify-center  border-2 border-dashed border-cyan-400 rounded-full "></div>
+        <!--Reverse Spinner-->
+        <div #reverse_spinner class="absolute w-15 h-15 border-2 border-dashed border-cyan-400 rounded-full ">
         </div>
+        <p style="text-shadow: 0 0 12px #22d3ee, 0 0 24px #22d3ee;"
+ class="absolute items-center justify-center text-4xl text-center  text-cyan-400 text-shadow-5xl text-shadow-cyan-200 shadow-cyan-400"> Ω </p>
+
+    </div>
+    
+    <div class="inset-0 z-50 flex flex-col items-center justify-center"> 
+        <p #phrase class="font-cinzel text-cyan-400 text-2xl"></p>
     </div>
 </div>
+
+
+    

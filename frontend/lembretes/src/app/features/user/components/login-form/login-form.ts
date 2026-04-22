@@ -35,6 +35,7 @@ export class LoginForm {
         console.log("Acesso concedido: ", res)
         this.router.navigate(['lembretes'])
       },
+      
       error: (err) => console.log("Erro ao estabelecer conexão: ", err)
     })
   }

@@ -1,0 +1,85 @@
+<div class="text-white  font-cinzel p-3">
+    <p class="text-3xl  text-center">Crie seu avatar</p>
+    <section class="grid grid-cols-1 md:grid-cols-[70%_auto] m-2">
+        <div>
+            <p>Cor do Cabelo</p>
+            <input type="color" value="#00000" name="" id="" (change)="updateConfig('hairColor', $any($event.target).value)" >
+        </div>
+        <div class="flex flex-col justify-self-center">
+            <label for="">Tom de pele</label>
+
+            <div class="flex flex-row">
+                @for (itens of skinColorOption; track $index) {
+                        <div class="w-8 h-8 " [style.background-color]="'#' + itens" (click)="updateConfig('skinColor',itens)" ></div>
+                }
+            </div>
+        </div>
+    </section>
+    <div class="grid grid-cols-1 md:grid-cols-[70%_auto]">
+        <div>
+            <form action="" class="p-2">
+                <h2>Personalize a aparência do seu Avatar.</h2>
+
+                <!-- Cabelos -->
+                <section (click)="openCloseSection('hair')" class="m-2 p-5 bg-cyan-900 rounded-lg">
+                    <label for="hair">Cabelos</label>
+                    <div class="flex flex-col "  >
+                        <div class="grid grid-cols-7 gap-2 bg-slate-950 p-4 rounded-lg " [hidden]="!isHairSectionOpen()">
+                            @for (itens of hairOptions; track $index) {
+                                <img class="p-2" [src]="previewAvatar('hair', itens)" (click)="updateConfig('hair', itens); $event.stopPropagation()" >
+                            }
+                        </div>
+                    </div>
+                </section>
+
+                 <!-- Olhos -->
+                <section (click)="openCloseSection('eyes')" class="m-2 p-5 bg-cyan-900 rounded-lg">
+                    <div class="flex flex-col"  >
+                        <label for="">Olhos</label>
+                        <div class="grid grid-cols-7 bg-slate-950 p-4 rounded-lg gap-2 items-center justify-center" [hidden]="!isEyesSectionOpen()" >
+                            @for (itens of eyesOptions ; track $index) {
+                                <img [src]="previewAvatar('eyes', itens)"  (click)="updateConfig('eyes', itens); $event.stopPropagation()"> 
+                            }
+                        </div>
+                    </div>
+                </section>
+
+                 <!-- Boca -->
+                <section class="m-2 p-5 bg-cyan-900 rounded-lg">
+                    <div class="flex flex-col" (click)="openCloseSection('mouth')">
+                        <label for="">Bocas</label>
+                        <div class="grid grid-cols-7 gap-2 bg-slate-950 p-4 rounded-lg" [hidden]="!isMouthSectionOpen()">
+                            @for (itens of mouthOptions; track $index) {
+                                <img [src]="previewAvatar('mouth', itens)" (click)="updateConfig('mouth', itens); $event.stopPropagation()">
+                            }
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Sombrancelhas -->
+                <section (click)="openCloseSection('eyebrows')" class="m-2 p-5 bg-cyan-900 rounded-lg" >     
+                    <div class="flex flex-col">
+                        <label for="">Sombrancelhas</label>
+                        <div class="grid grid-cols-5 gap-2 bg-slate-950 p-4 rounded-lg" [hidden]="!isEyeBrowsSectionOpen()">
+                            @for (itens of eyesOptions; track $index) {
+                                <img [src]="previewAvatar('eyebrows', itens)" (click)="updateConfig('eyebrows', itens); $event.stopPropagation()">
+                            }
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+            </form>
+        </div>
+
+        <!-- User Avatar -->
+        <section class=" border rounded-lg flex justify-center ">
+            <div>
+                <img [src]="avatarURL()" class="relative ">
+            </div>
+        </section>
+    </div>
+
+</div>

@@ -72,6 +72,16 @@ public class LembreteController {
         return ResponseEntity.ok(lembreteService.buscarLembretesPendentes(username, page, size));
     }
 
+    @GetMapping("/buscar/concluidos")
+    public ResponseEntity<Page<LembreteViewDTO>> buscarConcluidosPorUsuario(
+        @RequestParam(defaultValue = "0", name = "page", required = true) int page,
+        @RequestParam(defaultValue = "10", name = "size", required = true) int size,
+        @AuthenticationPrincipal Jwt jwt
+    ){
+        String username = jwt.getClaimAsString("sub");
+        return ResponseEntity.ok(lembreteService.buscarLembreteConcluidos(username, page, size));
+    }
+
     @PatchMapping("/concluido/{id}")
     public ResponseEntity<HttpStatus> concluirTarefa(@PathVariable Long id){
        lembreteService.concluirLembrete(id);

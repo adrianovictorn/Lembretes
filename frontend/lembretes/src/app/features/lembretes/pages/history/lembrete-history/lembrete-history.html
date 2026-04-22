@@ -1,0 +1,12 @@
+<div class="text-white font-cinzel text-2xl">
+    Missões Concluídas
+</div>
+
+
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+    @for (l of vm().lembretes; track l.id) {
+        <app-lembrete-card [item]="l" [concluidoOk]="false"></app-lembrete-card>
+    }
+</div>

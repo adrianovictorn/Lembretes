@@ -105,6 +105,13 @@ public class LembreteService {
         return lembreteRepository.findByUserUsernameAndStatus(user.getUsername(), Status.PENDENTE, pagina).map(lembreteMapper::toViewDTO);
     }
 
+    public Page<LembreteViewDTO> buscarLembreteConcluidos(String username, int page, int size){
+        Pageable pagina = PageRequest.of(page, size, Sort.by("dataLembrete").descending());
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado !"));
+        return lembreteRepository.findByUserUsernameAndStatus(user.getUsername(), Status.CONCLUIDO, pagina).map(lembreteMapper::toViewDTO);
+    }
+    
+
     public void deletarLembrete(Long id){
         Lembrete lembreExistente = buscarPorId(id);
         lembreteRepository.delete(lembreExistente);

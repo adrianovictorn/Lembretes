@@ -6,10 +6,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.github.adrianovictorn.lembrete.dto.game_profile.GameProfileViewDTO;
+import io.github.adrianovictorn.lembrete.entity.Avatar;
 import io.github.adrianovictorn.lembrete.entity.GameProfile;
 import io.github.adrianovictorn.lembrete.entity.Level;
 import io.github.adrianovictorn.lembrete.entity.User;
 import io.github.adrianovictorn.lembrete.mapper.GameProfileMapper;
+import io.github.adrianovictorn.lembrete.repository.AvatarRepository;
 import io.github.adrianovictorn.lembrete.repository.GameProfileRepository;
 import io.github.adrianovictorn.lembrete.repository.LevelRepository;
 import io.github.adrianovictorn.lembrete.repository.UserRepository;
@@ -22,23 +24,24 @@ public class GameProfileService {
     private final UserRepository userRepository;
     private final LevelRepository levelRepository;
     private final GameRulesConfigService gameRulesConfigService;
+    private final AvatarRepository avatarRepository;
     private final GameProfileMapper mapper;
     
     public GameProfileService(GameProfileRepository gameProfileRepository, LevelRepository levelRepository, UserRepository userRepository,
-            GameRulesConfigService gameRulesConfigService, GameProfileMapper mapper) {
+            GameRulesConfigService gameRulesConfigService, AvatarRepository avatarRepository,GameProfileMapper mapper) {
         this.gameProfileRepository = gameProfileRepository;
         this.levelRepository = levelRepository;
         this.userRepository = userRepository;
         this.gameRulesConfigService = gameRulesConfigService;
+        this.avatarRepository = avatarRepository;
         this.mapper = mapper;
     }
 
     @Transactional(readOnly = true)
     public GameProfileViewDTO buscarPorUser(String username){
         User userExistente = userRepository.findByUsername(username).orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado !"));
-
-        //Sei que é redondante, aumenta o custo. Mas tenho preguiça de alterar a classe #FÉ 
         GameProfile gameExistente = gameProfileRepository.findByUserId(userExistente.getId()).orElseThrow(() -> new EntityNotFoundException("Usuário não possui um Profile"));
+        //Sei que é redondante, aumenta o custo. Mas tenho preguiça de alterar a classe #FÉ 
         return mapper.toViewDTO(gameExistente);
     }
 

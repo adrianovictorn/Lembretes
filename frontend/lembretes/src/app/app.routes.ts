@@ -31,6 +31,15 @@ export const routes: Routes = [
                 loadComponent: () => import('./features/lembretes/pages/form/lembrete-form/lembrete-form-page').then(m => m.LembreteFormPage)
             }
         ]},
+     {
+        path: 'lembrete/historico', component: AppLayout,
+        children: [
+            {
+                path: '',
+                loadComponent: () => import('./features/lembretes/pages/history/lembrete-history/lembrete-history').then(m => m.LembreteHistory)
+            }
+        ]
+        },
     {
         path: 'input', component: AppLayout,
         children: [
@@ -48,6 +57,16 @@ export const routes: Routes = [
                 loadComponent: () => import('./features/game-profile/components/game-profile-view/game-profile-view').then(m => m.GameProfileView)
             }
         ]
+    },
+    {
+        path: 'avatar', component: AppLayout,
+        children: [
+            {
+                path: '',
+                loadComponent: () => import('./features/avatars/component/make-avatar/make-avatar').then(m => m.MakeAvatar)
+            }
+        ]
     }
+    
    
 ];

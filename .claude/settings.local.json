@@ -5,7 +5,8 @@
       "Bash(findstr \"125584\")",
       "Bash(tasklist /FI \"PID eq 125584\" /FO LIST /V)",
       "Bash(wmic process:*)",
-      "Bash(powershell \"Get-Process -Id 125584 | Select-Object -Property Name,Path,CommandLine | Format-List\")"
+      "Bash(powershell \"Get-Process -Id 125584 | Select-Object -Property Name,Path,CommandLine | Format-List\")",
+      "WebSearch"
     ]
   }
 }

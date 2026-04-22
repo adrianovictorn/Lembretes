@@ -22,7 +22,7 @@ export const MENU_ITEMS: MenuItem[] = [
             role: ['ROLE_ADMIN', 'ROLE_USER']
         },
     {
-        label: 'Lembrete', 
+        label: 'Missões', 
         path: '/lembretes', 
         children: [
             {

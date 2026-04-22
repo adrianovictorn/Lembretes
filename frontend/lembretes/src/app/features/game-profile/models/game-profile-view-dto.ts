@@ -1,3 +1,4 @@
+import { AvatarViewDTO } from "../../avatars/models/avatar-view-dtos";
 import { LevelViewDTO } from "../../level/models/level-view.dto";
 import { UserSimpleViewDTO } from "../../user/models/user-view.dto";
 
@@ -5,6 +6,7 @@ export interface GameProfileViewDTO {
     id: string;
     user: UserSimpleViewDTO;
     level: LevelViewDTO;
+    avatar: AvatarViewDTO;
     xp:number;
     moedas: number;
     streakAtual: number;

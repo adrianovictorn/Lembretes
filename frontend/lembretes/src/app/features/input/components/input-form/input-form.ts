@@ -17,6 +17,7 @@ export class InputForm implements AfterViewInit  {
   @ViewChild('btnSend', {static: false}) btnSend!: ElementRef<HTMLButtonElement>
 
   form: FormGroup;
+  isLoading: boolean = false
 
   constructor(
     private fb: FormBuilder, 
@@ -40,21 +41,27 @@ export class InputForm implements AfterViewInit  {
     })
   }
 
+
+
   salvar(){
     if(this.form.invalid){
       this.form.markAllAsTouched();
       return; 
     }
-
+    this.isLoading = true
     let request: IaLembreteRequest
     request = this.form.getRawValue();
     this.inputService.criarComIa(request).subscribe({
       next: (res) => {
         alert(`Sucesso ao enviar requisição: ${res}`)
         this.route.navigate(['input'])
+        this.isLoading = false
+        this.form.reset()
       },
       error: (error) => {
         throw Error(`Erro ao realizar requisição: ${error}`)
+        this.isLoading = false
+        this.form.reset()
       }
     })
   }

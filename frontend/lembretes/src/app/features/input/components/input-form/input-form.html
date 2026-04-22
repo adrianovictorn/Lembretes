@@ -8,5 +8,7 @@
         </div>
     </div>
 
-    <app-input-load class="fixed inset-0 z-50 bg-black/70 flex justify-center items-center "></app-input-load>
+    @if (isLoading) {
+        <app-input-load class="fixed inset-0 z-50 bg-black/90 "></app-input-load>
+    }
 </form>

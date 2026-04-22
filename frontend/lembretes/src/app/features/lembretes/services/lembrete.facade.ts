@@ -40,6 +40,20 @@ export class LembreteFacade {
     })
   }
 
+  carregarConcluidos(page = this.page(), size = this.size()){
+    this.loading.set(true)
+
+    this.api.buscarLembretesConcluidos(page, size)
+    .pipe(finalize(() => this.loading.set(false)))
+    .subscribe(res => {
+      this.lembretes.set(res.content)
+      this.page.set(page)
+      this.totalPages.set(res.totalPages)
+    })
+
+    console.log(`${this.api}` )
+  }
+
   carregar(page = this.page(), size = this.size()){
     this.loading.set(true)
 

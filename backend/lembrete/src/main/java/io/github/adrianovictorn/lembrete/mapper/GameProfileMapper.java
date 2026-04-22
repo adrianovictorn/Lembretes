@@ -13,6 +13,7 @@ import io.github.adrianovictorn.lembrete.entity.GameProfile;
 @Mapper(componentModel = "spring")
 public interface GameProfileMapper {
 
+    
     GameProfileViewDTO toViewDTO(GameProfile entity);
 
     @Mapping(target = "userId", ignore = true)
